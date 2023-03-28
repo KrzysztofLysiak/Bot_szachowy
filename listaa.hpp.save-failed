@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstring>
+#include <stdio.h>
+#include <string.h>
+#include <cassert>
+#include <conio.h>
+
+#include "Pionki.hpp"
+#include "element_listy.hpp"
+#include "Szachownica.hpp"
+
+#ifndef LISTAA
+#define LISTAA
+
+
+class lista{
+ //friend class element_listy;
+
+public:
+
+    lista(int rozmiar);
+    int rozmiar();
+    int zwroc(int k);
+    void dowiaz(int k, int l, int m, int n, int p);
+    void zdejmij();
+
+private:
+    element_listy* glowa;
+    element_listy* ogon;
+    int counter;
+};
+#endif

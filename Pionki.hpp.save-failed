@@ -1,0 +1,80 @@
+#include <iostream>
+#include <cstring>
+#include <stdio.h>
+#include <string.h>
+#include <cassert>
+#include <conio.h>
+
+
+#include "listaa.hpp"
+#include "element_listy.hpp"
+#include "Szachownica.hpp"
+
+#ifndef PIONKI
+#define PIONKI
+
+
+class skoczek :public ruch :public Figure{
+public:
+skoczek():Figure(color,wier,kol,Fig);
+mozliwe_ruchy(szachownica* szachownica, lista* lista);
+};
+
+class krol :public ruch :public Figure{
+public:
+krol():Figure(color,wier,kol,Fig);
+mozliwe_ruchy(szachownica* szachownica, lista* lista);
+};
+
+class dama :public ruch :public Figure{
+public:
+dama():Figure(color,wier,kol,Fig);
+void mozliwe_ruchy(szachownica* szachownica, lista* lista,wiersz,i);
+};
+
+class goniec :public ruch :public Figure{
+
+goniec():Figure(color,wier,kol,Fig);
+mozliwe_ruchy(szachownica* szachownica, lista* lista);
+};
+
+class wieza :public ruch :public Figure{
+public:
+wieza():Figure(color,wier,kol,Fig);
+mozliwe_ruchy(szachownica* szachownica, lista* lista);
+};
+
+class pion : public ruch : public Figure{
+pion():Figure(color,wier,kol,Fig);
+mozliwe_ruchy(szachownica* szachownica, lista* lista);
+};
+
+class Figure{
+
+public:
+Figure(kolor_na_posunieciu color,int wier,int kol,Figura Fig);
+lista* mozliwe_ruchy();
+Figura fi;
+kolor_na_posunieciu kolor;
+int wiersz;
+int kolumna;
+
+};
+
+
+
+class ruch{
+
+protected:
+int GG(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int GP(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int PP(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int PD(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int DD(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int DL(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int LL(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int LG(szachownica* szachownica, lista* lista, int wiersz,int kolumna);
+int sprawdzenie(szachownica* szachownica, lista* lista, int i, int j);
+};
+
+#endif
